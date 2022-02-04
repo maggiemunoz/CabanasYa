@@ -1,5 +1,7 @@
 {
   "name": "CabanasYa",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
 }
