@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cabins</h1>
+
+
+<% @cabins.each do |cabin| %>
+  <div class="card">
+    <div class="container">
+
+      <h4 class="title"><%= cabin.name%></h4> 
+      <p><%= cabin.description%></p> 
+      <p> fecha mas cercana: 15 febrero </p> 
+      <p> $<%= cabin.price%> </p> 
+
+      <div class="buttons">
+        
+        <p class="button"><%= link_to 'Ver Otras Fechas', edit_cabin_path(cabin) %></p> 
+        <p class="button"><%= link_to 'Reservar', new_booking_path(:cabin_id => cabin.id) %></p> 
+      </div>
+
+    </div>
+
+  
+    <%= image_tag(cabin.image, style:"width:50%") %>
+
+  </div>
+
+<% end %>
+
+
+<br>
+
+<%= link_to 'New Cabin', new_cabin_path %>

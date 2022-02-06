@@ -1,0 +1,48 @@
+// Place all the styles related to the Cabins controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 80%;
+    height: 20em;
+    margin: 1.5em auto;
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: inherit;
+  }
+
+.buttons {
+    border: 2px red;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.button {
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.title {
+    font-size: 2em;
+    text-transform: capitalize;
+}
