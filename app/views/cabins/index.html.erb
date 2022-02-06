@@ -12,10 +12,8 @@
 
       <h4 class="title"><%= cabin.name%></h4> 
       <p><%= cabin.description%></p> 
-      <p> fecha mas cercana: 15 febrero </p> 
-
-
-      <%# <p> <%= nearest_date(cabin, Booking.all) %> </p>  %>
+      <p> fecha mas cercana:</p> 
+      <p> <%= nearest_date(cabin).to_s(:long) %> </p> 
       <p> $<%= cabin.price%> </p> 
 
       <div class="buttons">
