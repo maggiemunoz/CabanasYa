@@ -4,8 +4,5 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Install dependencies 📦
-        run: bundle install
-
       - name: Run Rubocop
         run: rubocop 
