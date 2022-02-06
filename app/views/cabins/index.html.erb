@@ -2,6 +2,9 @@
 
 <h1>Cabins</h1>
 
+<% Booking.all.each do |booking| %>
+  <p> <%= booking%> </p> 
+<% end %>
 
 <% @cabins.each do |cabin| %>
   <div class="card">
@@ -10,6 +13,9 @@
       <h4 class="title"><%= cabin.name%></h4> 
       <p><%= cabin.description%></p> 
       <p> fecha mas cercana: 15 febrero </p> 
+
+
+      <%# <p> <%= nearest_date(cabin, Booking.all) %> </p>  %>
       <p> $<%= cabin.price%> </p> 
 
       <div class="buttons">
