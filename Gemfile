@@ -38,6 +38,8 @@ gem 'omniauth-rails_csrf_protection'
 
 gem 'rubocop', require: false
 
+gem 'webpacker', '~> 3.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
