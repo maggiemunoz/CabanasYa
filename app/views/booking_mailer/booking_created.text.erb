@@ -1,3 +1,17 @@
 Holi
 
 hola baby te amo
+
+Se ha registrado tu reserva en CabañasYa
+
+La informacion de reserva es la siguiente:
+
+<% cab = Cabin.find_by(id: @booking.cabin_id)%>
+
+Cabaña: <%= cab.name %>
+Fecha Inicio: <%= @booking.start_date.to_date.to_s(:long) %>
+Fecha Final: <%= @booking.end_date.to_date.to_s(:long) %>
+
+Te recordamos que el check-in es desde las 4pm, y el checkout debe ser antes de las 12pm
+
+¡Gracias por elegirnos!
