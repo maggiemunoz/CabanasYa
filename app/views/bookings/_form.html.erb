@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :start %>
-    <%= form.datetime_select :start, start_date: Time.now%>
+    <%= form.label :start_date %>
+    <%= form.datetime_select :start_date %>
   </div>
 
   <p>
@@ -21,11 +21,13 @@
   </p>
 
   <div class="field">
-    <%= form.label :end %>
-    <%= form.datetime_select :end %>
+    <%= form.label :end_date %>
+    <%= form.datetime_select :end_date %>
   </div>
 
   <%= form.hidden_field :cabin_id, value: (params["cabin_id"]) %>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
 
   <%= puts "hola"%>
   <%= puts params["cabin_id"]%>

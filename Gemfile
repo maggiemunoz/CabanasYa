@@ -29,6 +29,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
 
+gem 'omniauth'
+gem "dotenv-rails"
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

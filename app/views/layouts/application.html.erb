@@ -14,13 +14,12 @@
   <nav>
     <ul>
       <li><a href="/cabins">Home</a></li>
-      <li><a href="news.asp">News</a></li>
-      <li><a href="contact.asp">Contact</a></li>
       <% if current_user %>
-        <li> <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %> </li>
+        <li style="float:right"> <%= link_to "Reservas", bookings_path %> </li>
+        <li style="float:right"> <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %> </li>
       <% else %>
-        <li> <%= link_to "Iniciar Sesión", new_user_session_path %> </li>
-        <li> <%= link_to "Registrarme Sesión", new_user_registration_path %> </li>
+        <li style="float:right"> <%= link_to "Iniciar Sesión", new_user_session_path %> </li>
+        <li style="float:right"> <%= link_to "Registrarse", new_user_registration_path %> </li>
       <% end %>
     </ul>
   </nav>
