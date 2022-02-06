@@ -21,9 +21,13 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-    @booking = Booking.new(booking_params)
 
-    puts booking_params
+    better_params = booking_params
+    better_params[:start_date] = better_params[:dates][0..9].to_date
+    better_params[:end_date] = better_params[:dates][14..23].to_date
+    better_params.delete(:dates)
+
+    @booking = Booking.new(better_params)
 
     respond_to do |format|
       if @booking.save
@@ -70,6 +74,6 @@ class BookingsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :cabin_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :cabin_id, :user_id, :dates, :contact_email, :name)
   end
 end

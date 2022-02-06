@@ -5,6 +5,8 @@ class CreateBookings < ActiveRecord::Migration[5.2]
     create_table :bookings do |t|
       t.datetime :start_date
       t.datetime :end_date
+      t.string :name
+      t.string :contact_email
 
       t.timestamps
     end
