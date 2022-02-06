@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddUserToBookings < ActiveRecord::Migration[5.2]
   def change
     add_reference :bookings, :user, foreign_key: true

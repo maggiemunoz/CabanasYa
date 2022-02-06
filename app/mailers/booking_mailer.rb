@@ -1,5 +1,6 @@
-class BookingMailer < ApplicationMailer
+# frozen_string_literal: true
 
+class BookingMailer < ApplicationMailer
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -11,7 +12,7 @@ class BookingMailer < ApplicationMailer
 
     mail(
       to: @user.email,
-      subject: "Reserva hecha"
+      subject: 'Reserva hecha'
     )
   end
 end
