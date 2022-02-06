@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        BookingMailer.booking_created.deliver_now
+        BookingMailer.with(user: @booking.user, booking: @booking ).booking_created.deliver_now
         puts "DFKGLfd"
         format.html { redirect_to booking_url(@booking), notice: "Booking was successfully created." }
         format.json { render :show, status: :created, location: @booking }

@@ -6,8 +6,12 @@ class BookingMailer < ApplicationMailer
   #   en.booking_mailer.booking_created.subject
   #
   def booking_created
-    @greeting = "Hi"
+    @user = params[:user]
+    @booking = params[:booking]
 
-    mail to: "cabanasyacorreo@gmail.com"
+    mail(
+      to: @user.email,
+      subject: "Reserva hecha"
+    )
   end
 end

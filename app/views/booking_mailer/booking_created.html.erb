@@ -1,5 +1,13 @@
-<h1>Booking#booking_created</h1>
+<h1> Se ha registrado tu reserva en CabañasYa </h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/booking_mailer/booking_created.html.erb
-</p>
+<p>La informacion de reserva es la siguiente:</p>
+
+<% cab = Cabin.find_by(id: @booking.cabin_id)%>
+
+<p>Cabaña: <%= cab.name %></p>
+<p>Fecha Inicio: <%= @booking.start_date.to_date.to_s(:long) %></p>
+<p>Fecha Final: <%= @booking.end_date.to_date.to_s(:long) %></p>
+
+<p> Te recordamos que el check-in es desde las 4pm, y el checkout debe ser antes de las 12pm </p>
+
+<h4> ¡Gracias por elegirnos! </h4>
