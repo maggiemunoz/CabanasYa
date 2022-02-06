@@ -13,13 +13,15 @@
 
   <tbody>
     <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.start %></td>
-        <td><%= booking.end %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if booking.user_id == current_user.id%>
+        <tr>
+          <td><%= booking.start_date %></td>
+          <td><%= booking.end_date %></td>
+          <td><%= link_to 'Show', booking %></td>
+          <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
+          <td><%= link_to 'Cancel', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

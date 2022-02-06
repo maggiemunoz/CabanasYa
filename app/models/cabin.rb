@@ -1,4 +1,6 @@
+# frozen_string_literal: true
+
 class Cabin < ApplicationRecord
-    has_one_attached :image
-    has_many :bookings
+  has_one_attached :image
+  has_many :bookings
 end
