@@ -10,7 +10,9 @@
 
       <div class="booking-item">
 
-        <%= image_tag(cabin.image, class: "booking-image") %>
+        <% if cabin.image.attached?%>
+          <%= image_tag(cabin.image, class: "booking-image") %>
+        <% end %>
  
         <div class="booking-info">
           <p class="booking-title"> <%= cabin.name %> </p>

@@ -1,10 +1,8 @@
-<% cabin = Cabin.find_by(id: params['cabin_id'])%>
+<h1 class="bookingtitle"> <%= @cabin.name %> </h1>
+<h6 class="bookingdescription"> <%= @cabin.description %> </h6>
 
-<h1 class="bookingtitle"> <%= cabin.name %> </h1>
-<h6 class="bookingdescription"> <%= cabin.description %> </h6>
-
-<%= image_tag(cabin.image, class: "bookingimage") %>
+<% if @cabin.image.attached?%>
+<%= image_tag(@cabin.image, class: "bookingimage") %>
+<% end %>
 
 <%= render 'form', booking: @booking %>
-
-

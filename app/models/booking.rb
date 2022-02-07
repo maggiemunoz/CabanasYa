@@ -3,6 +3,7 @@
 class Booking < ApplicationRecord
   belongs_to :cabin
   belongs_to :user
+  has_many :contacts, dependent: :destroy
 
   validate :all_dates_are_free
 
