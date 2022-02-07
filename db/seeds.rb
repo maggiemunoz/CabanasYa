@@ -8,22 +8,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.create(email: 'cabanasyacorreo@gmail.com', password: ENV['DEFAUL_USER_PASS'])
+
 cabins = [
-  { name: 'Cabaña Pequeña', description: 'pequeña', price: 10_000 },
+  { name: 'Cabaña Pequeña', description: 'pequeña', price: 10_500 },
+  { name: 'Cabaña Mediana', description: 'mediana', price: 20_000 },
   { name: 'Cabaña Grande', description: 'grande', price: 35_000 }
 ]
 
 a = []
+file_names = ['cabana1.jpeg', 'cabana2.jpg', 'cabana3.jpg']
+cont = 0
 
 cabins.each do |attributes|
   a << temp = Cabin.create!(attributes)
   temp.image.attach(
-    io: File.open('app/assets/images/cabana2.jpg'),
+    io: File.open("app/assets/images/#{file_names[cont]}"),
     filename: 'cabana2.jpg'
   )
   puts temp.image.attached?
-end
-
-a.each do |c|
-  puts c.image
+  cont += 1
 end
