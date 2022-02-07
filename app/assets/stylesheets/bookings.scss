@@ -1,3 +1,161 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bookingtitle {
+    margin: 0 5%
+}
+
+.bookingdescription {
+    margin: 0 5%;
+    color: rgb(85, 85, 85);
+    font-weight: 400;
+}
+
+.bookingimage {
+    height: 25em;
+    width: 90%;
+    display: block;
+    margin: 1.5% auto;
+    border-radius: 8px;
+    object-fit: cover
+}
+
+.bookingfields {
+    margin-left: 5%;
+    margin-right: 15%
+}
+
+.bookingfield {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.bookingform {
+    width: 80%;
+}
+
+.bookingcalendar {
+    width: 100%;
+}
+
+#calendarfield {
+    float: right;
+    margin: 0 5%
+}
+
+.bookingsubmit {
+    padding: 0 1em;
+    float: right;
+}
+
+
+.calendarinput {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	padding-top: 1.5rem;
+	&:focus {
+		margin-top: 1.5rem;
+	}
+}
+
+.bookingsubmit {
+	font: inherit;
+	font-size: 1.25rem;
+	padding: 0.5em;
+	width: 18%;
+	background-color: rgb(105, 157, 240);
+	border-radius: 6px;
+	color: #FFF;
+	border: 0;
+	&:focus {
+		outline: 0;
+	}
+}
+
+.bookinginput-field {
+	border: 0;
+	z-index: 1;
+	background-color: transparent;
+	border-bottom: 2px solid #ccc; 
+	font: inherit;
+	font-size: 1.125rem;
+	padding: .25rem 0;
+    margin-top: 1.5em;
+	&:focus {
+		outline: 0;
+		border-bottom-color: rgb(105, 157, 240);
+		&:focus {
+			color: rgb(105, 157, 240);
+		}
+	}
+}
+
+.bookings-layout{
+	margin: 0 2.5%;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 10px;
+	grid-auto-rows: minmax(100px, 300px);
+}
+
+.booking-item{
+	margin: 0.5em;
+	display: flex;
+	flex-direction: row;
+	background-color: #FFF;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px 0 rgba(#999, .25);
+	padding: .75rem;
+}
+
+.booking-image{
+	width: 50%;
+	height: auto;
+	object-fit: cover;
+	border-radius: 8px;
+}
+
+.booking-info{
+	width: 50%;
+}
+
+.booking-title{
+	margin: 0 0 1em 0;
+	text-align: center;
+	font-weight: 600;
+}
+
+.booking-label{
+	padding: 0 0.5em;
+	font-size: small;
+	color: gray;
+}
+
+.booking-date{
+	text-align: center;
+	font-size: large;
+}
+
+.booking-cancel{
+	background-color: rgb(105, 157, 240);
+    color: white;
+    text-align: center;
+    border: 0px;
+    border-radius: 4px;
+    padding: 0.25em 1.5em;
+	text-decoration:none; 
+	font-weight: 300;
+}
+
+.booking-button{
+	text-align: center;
+	margin-top: 15%;
+}
+
+.title{
+	margin-left: 2.5%;
+}
