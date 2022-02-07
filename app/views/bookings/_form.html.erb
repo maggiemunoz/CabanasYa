@@ -14,45 +14,51 @@
 
   <% dates = disabled_dates(params["cabin_id"]) %> 
 
-  <div class="field">
-  <%= form.text_field :dates,
-    data: {
-      controller: "flatpickr",
-      flatpickr_date_format: "d/m/Y",
-      flatpickr_min_date: Time.zone.now,
-      flatpickr_mode: "range",
-      flatpickr_disable: dates,
-      flatpickr_inline: true
-    } %>
-  </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <% if current_user %>
-    <div class="field">
-      <%= form.label :contact_email %>
-      <%= form.email_field :contact_email, :value => current_user.email %>
+  <div>
+    <div class="calendarfield">
+      <%= form.text_field :dates,
+        data: {
+          controller: "flatpickr",
+          flatpickr_date_format: "d/m/Y",
+          flatpickr_min_date: Time.zone.now,
+          flatpickr_mode: "range",
+          flatpickr_disable: dates,
+          flatpickr_inline: true
+        }, class: 'bookingcalendar' %>
     </div>
-  <% else %>
-    <div class="field">
-      <%= form.label :contact_email %>
-      <%= form.email_field :contact_email %>
+
+    <div class="bookingfields">
+      <div class="bookingfield">
+        <%= form.label :name, class: 'bookinglabel' %>
+        <%= form.text_field :name, class: 'bookingform' %>
+      </div>
+
+      <% if current_user %>
+        <div class="bookingfield">
+          <%= form.label :contact_email, class: 'bookinglabel' %>
+          <%= form.email_field :contact_email, :value => current_user.email, class: 'bookingform' %>
+        </div>
+      <% else %>
+        <div class="bookingfield">
+          <%= form.label :contact_email, class: 'bookinglabel' %>
+          <%= form.email_field :contact_email, class: 'bookingform' %>
+        </div>
+      <% end %>
+    
+
+      <%= form.hidden_field :cabin_id, value: (params["cabin_id"]) %>
+
+      <% if current_user %>
+        <%= form.hidden_field :user_id, value: current_user.id %>
+      <% else %>
+        <%= form.hidden_field :user_id, value: 1 %>
+      <% end %>
+
+      <div class="actions">
+        <%= form.submit :Agendar, class: "bookingsubmit" %>
+      </div>
     </div>
-  <% end %>
-
-  <%= form.hidden_field :cabin_id, value: (params["cabin_id"]) %>
-
-
-  <% if current_user %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-  <% else %>
-    <%= form.hidden_field :user_id, value: 1 %>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
+
 <% end %>

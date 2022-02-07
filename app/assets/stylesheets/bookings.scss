@@ -1,3 +1,46 @@
 // Place all the styles related to the Bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bookingtitle {
+    margin: 0 5%
+}
+
+.bookingimage {
+    height: 25em;
+    width: 90%;
+    display: block;
+    margin: 1.5% auto;
+    border-radius: 8px;
+    object-fit: cover
+}
+
+.bookingfields {
+    margin-left: 5%;
+    margin-right: 15%
+}
+
+.bookingfield {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1em 0;
+}
+
+.bookingform {
+    width: 80%;
+}
+
+.bookingcalendar {
+    width: 100%;
+}
+
+.calendarfield {
+    float: right;
+    margin: 0 5%
+}
+
+.bookingsubmit {
+    padding: 0 1em;
+    float: right;
+}
