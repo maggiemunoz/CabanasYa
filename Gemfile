@@ -40,6 +40,8 @@ gem 'rubocop', require: false
 
 gem 'webpacker', '~> 3.0'
 
+gem 'chilean-rutify'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

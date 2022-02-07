@@ -10,12 +10,6 @@ class Booking < ApplicationRecord
     bookings = Booking.where(['cabin_id =?', cabin_id])
     date_ranges = bookings.map { |bk| bk.start_date..bk.end_date }
 
-    puts date_ranges
-    puts '______________________________'
-    puts start_date
-    puts end_date
-    puts '______________________________'
-
     (start_date.to_date..end_date.to_date).to_a.each do |date|
       date_ranges.each do |range|
         if range.include? date

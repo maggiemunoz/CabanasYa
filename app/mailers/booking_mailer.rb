@@ -10,9 +10,29 @@ class BookingMailer < ApplicationMailer
     @user = params[:user]
     @booking = params[:booking]
 
+    if @user.id == 1
+      mail(
+        to: @booking.contact_email,
+        subject: 'Reserva hecha'
+      )
+    else
+      mail(
+        to: @user.email,
+        subject: 'Reserva hecha'
+      )
+    end
+  end
+
+  def contact_sent
+    @contact = params[:contact]
+
+    @booking = Booking.find_by(id: @contact.booking_id)
+    puts @booking
+    cabin = Cabin.find_by(id: @booking.cabin_id).name
+
     mail(
-      to: @user.email,
-      subject: 'Reserva hecha'
+      to: ENV['GMAIL_ADDRESS'],
+      subject: "Se ha reservado #{cabin}"
     )
   end
 end

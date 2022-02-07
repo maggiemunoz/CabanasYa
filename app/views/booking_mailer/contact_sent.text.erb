@@ -1,0 +1,11 @@
+Una reserva ha sido realizada
+
+<% book = Booking.find_by(id: @contact.booking_id)%>
+
+<% cabin = Cabin.find_by(id: book.cabin_id)%>
+
+<%= @contact.name %> ha reservado la cabaña <%= cabin.name %> desde <% book.start_date.to_date.to_s(:long) %> hasta <%book.end_date.to_date.to_s(:long)%>
+
+<%= @contact.name %> ha proporcionado el siguiente correo de contacto: <%= @contact.email %>  y ha enviado el siguiente mensaje 
+
+<%= @contact.info %>

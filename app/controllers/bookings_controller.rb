@@ -21,7 +21,6 @@ class BookingsController < ApplicationController
 
   # POST /bookings or /bookings.json
   def create
-
     better_params = booking_params
     better_params[:start_date] = better_params[:dates][0..9].to_date
     better_params[:end_date] = better_params[:dates][14..23].to_date
@@ -32,8 +31,13 @@ class BookingsController < ApplicationController
     respond_to do |format|
       if @booking.save
         BookingMailer.with(user: @booking.user, booking: @booking).booking_created.deliver_now
-        puts 'DFKGLfd'
-        format.html { redirect_to booking_url(@booking), notice: 'Booking was successfully created.' }
+        # format.html { redirect_to booking_url(@booking), notice: 'Booking was successfully created.' }
+        format.html do
+          redirect_to new_contact_path(params: { email: @booking.contact_email,
+                                                 booking_id: @booking.id,
+                                                 name: @booking.name }),
+                      notice: 'Booking was successfully created.'
+        end
         format.json { render :show, status: :created, location: @booking }
       else
         format.html { render :new, status: :unprocessable_entity }
