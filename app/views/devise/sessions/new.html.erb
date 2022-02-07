@@ -1,11 +1,9 @@
-<h2>Log in</h2>
-
 <div class="container">
 	<div class="logincard">
 		<div class="logincard-image">	
 			<h2 class="logincard-heading">
 				Get started
-				<small>Let us create your account</small>
+				<small>Sign in to your account</small>
 			</h2>
 		</div>
 
@@ -20,14 +18,7 @@
         <%= f.password_field :password, autocomplete: "current-password", class: "input-field" %>
       </div>
 
-      <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
-        </div>
-      <% end %>
-
-      <div class="actions">
+      <div class="action">
         <%= f.submit "Log in", class: "action-button" %>
       </div>
     <% end %>

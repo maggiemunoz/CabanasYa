@@ -1,33 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Cabins</h1>
+<h1 class="title">Cabañas Disponibles</h1>
 
 <% @cabins.each do |cabin| %>
-  <div class="card">
-    <div class="container">
+  <%= link_to new_booking_path(:cabin_id => cabin.id), class:"cabin-link" do%>
+    <div class="card">
+      <div class="cabin-info">
+        <h4 class="cabin-title"><%= cabin.name%></h4> 
+        <p class="cabin-description"><%= cabin.description%></p> 
 
-      <h4 class="title"><%= cabin.name%></h4> 
-      <p><%= cabin.description%></p> 
-      <p> fecha mas cercana:</p> 
-      <p> <%= nearest_date(cabin).to_s(:long) %> </p> 
-      <p> $<%= cabin.price%> </p> 
+        <p class="cabin-datelabel"> Disponibilidad mas cercana:</p> 
+        <p class="cabin-date"> <%= nearest_date(cabin).to_s(:long) %> </p> 
 
-      <div class="buttons">
+        <div class="cabin-button">
         
-        <p class="button"><%= link_to 'Ver Otras Fechas', edit_cabin_path(cabin) %></p> 
-        <p class="button"><%= link_to 'Reservar', new_booking_path(:cabin_id => cabin.id) %></p> 
+        </div>
+
+        <p class="cabin-pricelabel"> precio por noche:</p> 
+        <p class="cabin-price"> $<%= cabin.price%> </p> 
       </div>
-
+      <%= image_tag(cabin.image, style:"width:50%") %>
     </div>
-
-  
-    <%= image_tag(cabin.image, style:"width:50%") %>
-
-  </div>
-
+  <% end %>
 <% end %>
-
-
 <br>
 
-<%= link_to 'New Cabin', new_cabin_path %>
+<%# <%= link_to 'New Cabin', new_cabin_path %> 

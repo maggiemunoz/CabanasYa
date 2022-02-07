@@ -1,7 +1,7 @@
 <% cabin = Cabin.find_by(id: params['cabin_id'])%>
 
 <h1 class="bookingtitle"> <%= cabin.name %> </h1>
-<h6 class="bookingtitle"> <%= cabin.description %> </h6>
+<h6 class="bookingdescription"> <%= cabin.description %> </h6>
 
 <%= image_tag(cabin.image, class: "bookingimage") %>
 
