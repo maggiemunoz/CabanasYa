@@ -25,7 +25,7 @@ class CabinsController < ApplicationController
 
     respond_to do |format|
       if @cabin.save
-        format.html { redirect_to cabin_url(@cabin), notice: 'Cabin was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Cabin was successfully created.' }
         format.json { render :show, status: :created, location: @cabin }
       else
         format.html { render :new, status: :unprocessable_entity }

@@ -5,9 +5,11 @@
   <%= @cabin.name %>
 </p>
 
-<div>
-<%= image_tag(@cabin.image, style:"width:50%") %>
-</div>
+<% if @cabin.image.attached?%>
+  <div>
+  <%= image_tag(@cabin.image, style:"width:50%") %>
+  </div>
+<% end %>
 
 <p>
   <strong>Description:</strong>

@@ -1,8 +1,8 @@
 <h1 class="title">Cabañas Disponibles</h1>
 
 <% @cabins.each do |cabin| %>
-  <%= link_to new_booking_path(:cabin_id => cabin.id), class:"cabin-link" do%>
-    <div class="card">
+  <%= link_to new_cabin_booking_path(cabin_id: cabin.id), class:"cabin-link" do%>
+    <div class="card", id="cabin">
       <div class="cabin-info">
         <h4 class="cabin-title"><%= cabin.name%></h4> 
         <p class="cabin-description"><%= cabin.description%></p> 
@@ -17,10 +17,12 @@
         <p class="cabin-pricelabel"> precio por noche:</p> 
         <p class="cabin-price"> $<%= cabin.price%> </p> 
       </div>
-      <%= image_tag(cabin.image, style:"width:50%") %>
+      <% if cabin.image.attached?%>
+        <%= image_tag(cabin.image, style:"width:50%") %>
+      <% end %>
     </div>
   <% end %>
 <% end %>
 <br>
 
-<%# <%= link_to 'New Cabin', new_cabin_path %> 
+<%= link_to 'New Cabin', new_cabin_path %> 

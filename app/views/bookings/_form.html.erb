@@ -19,14 +19,15 @@
 
     <div id="calendarfield", class="calendarinput">
       <%= form.label :Fechas, class: 'input-label' %>
-      <%= form.text_field :dates,
+      <%= form.text_field :dates, id: 'flatpickr-capybara-selector-dates',
         data: {
           controller: "flatpickr",
           flatpickr_date_format: "d/m/Y",
           flatpickr_min_date: Time.zone.now,
           flatpickr_mode: "range",
           flatpickr_disable: dates,
-          flatpickr_inline: true
+          flatpickr_inline: true,
+          flatpickr_allow_input: true
         }, class: 'bookinginput-field' %>
     </div>
 
@@ -39,23 +40,17 @@
       <% if current_user %>
         <div class="input">
           <%= form.label :contact_email, class: 'input-label' %>
-          <%= form.email_field :contact_email, :value => current_user.email, class: 'bookinginput-field' %>
+          <%= form.text_field :contact_email, :value => current_user.email, class: 'bookinginput-field' %>
         </div>
       <% else %>
         <div class="input">
           <%= form.label :contact_email, class: 'input-label' %>
-          <%= form.email_field :contact_email, class: 'bookinginput-field' %>
+          <%= form.text_field :contact_email, class: 'bookinginput-field' %>
         </div>
       <% end %>
     
 
       <%= form.hidden_field :cabin_id, value: (params["cabin_id"]) %>
-
-      <% if current_user %>
-        <%= form.hidden_field :user_id, value: current_user.id %>
-      <% else %>
-        <%= form.hidden_field :user_id, value: 1 %>
-      <% end %>
 
       <div class="action">
         <%= form.submit :Agendar, class: "bookingsubmit" %>

@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
   # GET /bookings/new
   def new
     @booking = Booking.new
+    @cabin = Cabin.find_by(id: params['cabin_id'])
   end
 
   # GET /bookings/1/edit
@@ -26,10 +27,10 @@ class BookingsController < ApplicationController
     better_params[:end_date] = better_params[:dates][14..23].to_date
     better_params.delete(:dates)
 
-    @booking = Booking.new(better_params)
+    @booking = booking_user.bookings.new(better_params)
 
     respond_to do |format|
-      if @booking.save
+      if @booking.save!
         BookingMailer.with(user: @booking.user, booking: @booking).booking_created.deliver_now
         # format.html { redirect_to booking_url(@booking), notice: 'Booking was successfully created.' }
         format.html do
@@ -79,5 +80,9 @@ class BookingsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def booking_params
     params.require(:booking).permit(:start_date, :end_date, :cabin_id, :user_id, :dates, :contact_email, :name)
+  end
+
+  def booking_user
+    current_user || User.first
   end
 end
