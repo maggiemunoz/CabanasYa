@@ -2,5 +2,5 @@
 
 class Cabin < ApplicationRecord
   has_one_attached :image
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 end
