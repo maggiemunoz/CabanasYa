@@ -83,4 +83,4 @@ gem 'rspec-rails', '~> 5.1'
 
 gem 'simplecov', '~> 0.21.2'
 
-gem "activeadmin", "~> 2.9"
+gem 'activeadmin', '~> 2.9'
