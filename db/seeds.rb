@@ -9,6 +9,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(email: 'cabanasyacorreo@gmail.com', password: ENV['DEFAUL_USER_PASS'])
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
 
 cabins = [
   { name: 'Cabaña Pequeña', description: 'pequeña', price: 10_500 },
