@@ -74,3 +74,4 @@ yarn-debug.log*
 .yarn-integrity
 
 public/coverage
+.DS_Store
