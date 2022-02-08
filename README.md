@@ -1,5 +1,9 @@
 # README
 
+Schema documentation:
+[link]
+https://github.com/maggiemunoz/CabanasYa/tree/main/docs/schema_documentation.pdf
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
@@ -22,3 +26,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Or you can go to:
+
+https://cabanasya.herokuapp.com
