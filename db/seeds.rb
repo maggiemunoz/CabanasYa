@@ -27,6 +27,5 @@ cabins.each do |attributes|
     io: File.open("app/assets/images/#{file_names[cont]}"),
     filename: 'cabana2.jpg'
   )
-  puts temp.image.attached?
   cont += 1
 end
