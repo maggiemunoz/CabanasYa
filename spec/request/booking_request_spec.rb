@@ -38,7 +38,6 @@ class BookingTest < ActiveSupport::TestCase
           # sleep(1)
           # click_on 'Reservas'
           # expect(page).to have_content('Cabaña Test')
-
         end.not_to raise_error
       end
     end
