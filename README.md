@@ -7,7 +7,8 @@ How to run the app locally
 
 You'll need Rails version 5.2+ and Ruby version 2.6+
 
-    Git clone https://github.com/maggiemunoz/CabanasYa.git
+    git clone https://github.com/maggiemunoz/CabanasYa.git
+    cd CabanasYa
 
 create .env file in the root of the repository with the following format
 
@@ -25,7 +26,7 @@ run
 
     rails db:create db:migrate db:seed
 
-    Bundle install
+    bundle install
 
     npm i
 
