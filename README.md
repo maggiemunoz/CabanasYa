@@ -1,7 +1,6 @@
 # README
 
 Schema documentation:
-[link]
 https://github.com/maggiemunoz/CabanasYa/tree/main/docs/schema_documentation.pdf
 
 This README would normally document whatever steps are necessary to get the
