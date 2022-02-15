@@ -12,6 +12,7 @@ class BookingTest < ActiveSupport::TestCase
       end
 
       after do
+        Contact.delete_all
         Booking.delete_all
         Cabin.delete_all
         User.delete_all
@@ -19,25 +20,25 @@ class BookingTest < ActiveSupport::TestCase
 
       it 'book cabin correctly' do
         expect do
-          # visit root_path
-          # find('#cabin').click
-          # fill_in 'Name', with: 'Test'
-          # # fill_in 'Fechas', with: '14/07/2022 to 18/07/2022'
-          # find('#flatpickr-capybara-selector-dates').fill_in(with: '14/07/2022 to 18/07/2022')
-          # fill_in 'Contact email', with: 'mailtest.com'
-          # sleep(1)
-          # click_on 'Agendar'
-          # sleep(1)
-          # # find_field('Rut').set('21643640-7')
-          # find('#rutfield', visible: false).fill_in(with: '21643640-7')
-          # sleep(1)
-          # fill_in 'Info', with: 'testing'
-          # sleep(1)
-          # click_on 'Enviar'
+          visit root_path
+          find('#cabin').click
+          fill_in 'Name', with: 'Test'
+          # fill_in 'Fechas', with: '14/07/2022 to 18/07/2022'
+          find('#flatpickr-capybara-selector-dates').fill_in(with: '14/07/2022 to 18/07/2022')
+          fill_in 'Contact email', with: 'test@gmail.com'
+          sleep(1)
+          click_on 'Agendar'
+          sleep(1)
+          expect(page).to have_content('La reserva fue creada correctamente')
+          # find_field('Rut').set('21643640-7')
+          find('#rutfield', visible: false).fill_in(with: '21643640-7')
+          sleep(1)
+          find('#infofield', visible: false).fill_in(with: 'testing')
+          # fill_in 'Informacion adicional', with: 'testing'
+          sleep(1)
+          click_on 'Enviar'
 
-          # sleep(1)
-          # click_on 'Reservas'
-          # expect(page).to have_content('Cabaña Test')
+          expect(page).to have_content('La informacion de contacto ha sido enviada correctamente.')
         end.not_to raise_error
       end
     end

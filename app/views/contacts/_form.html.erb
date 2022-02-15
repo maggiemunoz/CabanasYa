@@ -27,7 +27,7 @@
 
   <div class="input">
     <%= form.label 'Informacion Adicional', class: 'input-label' %>
-    <%= form.text_area :info, class: 'bookinginput-field' %>
+    <%= form.text_area :info, class: 'bookinginput-field', id:'infofield' %>
   </div>
 
   <%= form.hidden_field :booking_id, value: (@booking.id) %>
