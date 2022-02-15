@@ -30,17 +30,18 @@ class BookingsController < ApplicationController
     @booking = booking_user.bookings.new(better_params)
 
     respond_to do |format|
-      if @booking.save!
+      if @booking.save
         BookingMailer.with(user: @booking.user, booking: @booking).booking_created.deliver_now
         # format.html { redirect_to booking_url(@booking), notice: 'Booking was successfully created.' }
         format.html do
           redirect_to new_contact_path(params: { email: @booking.contact_email,
                                                  booking_id: @booking.id,
                                                  name: @booking.name }),
-                      notice: 'Booking was successfully created.'
+                      notice: 'La reserva fue creada correctamente.'
         end
         format.json { render :show, status: :created, location: @booking }
       else
+        @cabin = Cabin.find_by(id: @booking.cabin_id)
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
       end
@@ -65,7 +66,7 @@ class BookingsController < ApplicationController
     @booking.destroy
 
     respond_to do |format|
-      format.html { redirect_to bookings_url, notice: 'Booking was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'La reserva ha sido eliminada correctamente.' }
       format.json { head :no_content }
     end
   end

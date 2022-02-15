@@ -26,7 +26,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.save
         BookingMailer.with(contact: @contact).contact_sent.deliver_now
-        format.html { redirect_to contact_url(@contact), notice: 'Contact was successfully created.' }
+        format.html { redirect_to root_path, notice: 'La informacion de contacto ha sido enviada correctamente.' }
         format.json { render :show, status: :created, location: @contact }
       else
         format.html { render :new, status: :unprocessable_entity }
