@@ -15,6 +15,8 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = Contact.new
+    @booking = Booking.find_by(id: params['booking_id'])
+    @name = params['name']
   end
 
   # GET /contacts/1/edit
@@ -30,7 +32,8 @@ class ContactsController < ApplicationController
         format.html { redirect_to root_path, notice: 'La informacion de contacto ha sido enviada correctamente.' }
         format.json { render :show, status: :created, location: @contact }
       else
-        flash[:data] = { email: @contact.email, rut: @contact.rut, info: @contact.info }
+        @name = @contact.name
+        @booking = Booking.find_by(id: @contact.booking_id)
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end

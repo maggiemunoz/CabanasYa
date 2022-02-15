@@ -26,13 +26,13 @@
   </div>
 
   <div class="input">
-    <%= form.label :info, class: 'input-label' %>
+    <%= form.label 'Informacion Adicional', class: 'input-label' %>
     <%= form.text_area :info, class: 'bookinginput-field' %>
   </div>
 
-  <%= form.hidden_field :booking_id, value: (params['booking_id']) %>
+  <%= form.hidden_field :booking_id, value: (@booking.id) %>
 
-  <%= form.hidden_field :name, value: (params['name']) %>
+  <%= form.hidden_field :name, value: (@name) %>
 
   <div class="action">
     <%= form.submit :Enviar, class:"bookingsubmit" %>
