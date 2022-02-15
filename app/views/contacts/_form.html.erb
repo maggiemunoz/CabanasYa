@@ -2,20 +2,27 @@
   <% if contact.errors.any? %>
     <div id="error_explanation">
       <h2> La informacion de contacto no se pudo enviar, revisa los siguientes errores: </h2>
-      <% booking.errors.full_messages.each do |message| %>
+      <% contact.errors.full_messages.each do |message| %>
         <p id="error_message"><%= message %></p>
       <% end %>
     </div>
   <% end %>
 
+  <% puts flash[:data] %>
+
   <div class="input">
     <%= form.label :rut, class: 'input-label' %>
     <%= form.text_field :rut, class: 'bookinginput-field', id:'rutfield' %>
+
   </div>
 
   <div class="input">
     <%= form.label :email, class: 'input-label' %>
-    <%= form.email_field :email, :value => (params['email']), class: 'bookinginput-field' %>
+    <% if (params['email']) %>
+      <%= form.email_field :email, :value => (params['email']), class: 'bookinginput-field' %>
+    <% else %>
+      <%= form.email_field :email, class: 'bookinginput-field' %>
+    <% end %>
   </div>
 
   <div class="input">

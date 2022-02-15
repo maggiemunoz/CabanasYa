@@ -10,7 +10,7 @@ class BookingMailer < ApplicationMailer
     @user = params[:user]
     @booking = params[:booking]
 
-    if @user.id == 1
+    if (@user.id == 1) || (@booking.contact_email != @user.email)
       mail(
         to: @booking.contact_email,
         subject: 'Reserva hecha'

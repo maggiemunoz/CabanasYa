@@ -2,6 +2,7 @@
 
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[show edit update destroy]
+  add_flash_types :data
 
   # GET /contacts or /contacts.json
   def index
@@ -29,6 +30,7 @@ class ContactsController < ApplicationController
         format.html { redirect_to root_path, notice: 'La informacion de contacto ha sido enviada correctamente.' }
         format.json { render :show, status: :created, location: @contact }
       else
+        flash[:data] = { email: @contact.email, rut: @contact.rut, info: @contact.info }
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end
