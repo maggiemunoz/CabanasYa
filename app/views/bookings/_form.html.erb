@@ -1,10 +1,10 @@
 
-<%= form_with(model: booking, local: true) do |form| %>
-  <% if booking.errors.any? %>
+<%= form_with(model: @booking, local: true) do |form| %>
+  <% if @booking.errors.any? %>
     <div id="error_explanation">
       <h2> La reserva no se pudo enviar, revisa los siguientes errores: </h2>
 
-      <% booking.errors.full_messages.each do |message| %>
+      <% @booking.errors.full_messages.each do |message| %>
         <p id="error_message"><%= message %></p>
       <% end %>
     </div>
@@ -47,9 +47,8 @@
           <%= form.text_field :contact_email, class: 'bookinginput-field' %>
         </div>
       <% end %>
-    
 
-      <%= form.hidden_field :cabin_id, value: (params["cabin_id"]) %>
+      <%= form.hidden_field :cabin_id, value: (@cabin.id) %>
 
       <div class="action">
         <%= form.submit :Agendar, class: "bookingsubmit" %>
