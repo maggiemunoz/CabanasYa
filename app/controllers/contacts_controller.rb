@@ -2,6 +2,7 @@
 
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[show edit update destroy]
+  add_flash_types :data
 
   # GET /contacts or /contacts.json
   def index
@@ -14,6 +15,8 @@ class ContactsController < ApplicationController
   # GET /contacts/new
   def new
     @contact = Contact.new
+    @booking = Booking.find_by(id: params['booking_id'])
+    @name = params['name']
   end
 
   # GET /contacts/1/edit
@@ -26,9 +29,11 @@ class ContactsController < ApplicationController
     respond_to do |format|
       if @contact.save
         BookingMailer.with(contact: @contact).contact_sent.deliver_now
-        format.html { redirect_to contact_url(@contact), notice: 'Contact was successfully created.' }
+        format.html { redirect_to root_path, notice: 'La informacion de contacto ha sido enviada correctamente.' }
         format.json { render :show, status: :created, location: @contact }
       else
+        @name = @contact.name
+        @booking = Booking.find_by(id: @contact.booking_id)
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @contact.errors, status: :unprocessable_entity }
       end

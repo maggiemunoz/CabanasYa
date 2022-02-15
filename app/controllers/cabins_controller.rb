@@ -52,7 +52,7 @@ class CabinsController < ApplicationController
     @cabin.destroy
 
     respond_to do |format|
-      format.html { redirect_to cabins_url, notice: 'Cabin was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Cabin was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

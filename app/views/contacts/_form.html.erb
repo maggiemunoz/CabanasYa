@@ -1,34 +1,38 @@
 <%= form_with(model: contact, local: true, class: 'contact-form') do |form| %>
   <% if contact.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
-
-      <ul>
+      <h2> La informacion de contacto no se pudo enviar, revisa los siguientes errores: </h2>
       <% contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <p id="error_message"><%= message %></p>
       <% end %>
-      </ul>
     </div>
   <% end %>
+
+  <% puts flash[:data] %>
 
   <div class="input">
     <%= form.label :rut, class: 'input-label' %>
     <%= form.text_field :rut, class: 'bookinginput-field', id:'rutfield' %>
+
   </div>
 
   <div class="input">
     <%= form.label :email, class: 'input-label' %>
-    <%= form.email_field :email, :value => (params['email']), class: 'bookinginput-field' %>
+    <% if (params['email']) %>
+      <%= form.email_field :email, :value => (params['email']), class: 'bookinginput-field' %>
+    <% else %>
+      <%= form.email_field :email, class: 'bookinginput-field' %>
+    <% end %>
   </div>
 
   <div class="input">
-    <%= form.label :info, class: 'input-label' %>
+    <%= form.label 'Informacion Adicional', class: 'input-label' %>
     <%= form.text_area :info, class: 'bookinginput-field' %>
   </div>
 
-  <%= form.hidden_field :booking_id, value: (params['booking_id']) %>
+  <%= form.hidden_field :booking_id, value: (@booking.id) %>
 
-  <%= form.hidden_field :name, value: (params['name']) %>
+  <%= form.hidden_field :name, value: (@name) %>
 
   <div class="action">
     <%= form.submit :Enviar, class:"bookingsubmit" %>
