@@ -105,10 +105,8 @@ class BookingTest < ActiveSupport::TestCase
           click_on 'Agendar'
           # sleep(3)
           expect(page).to have_content('La reserva fue creada correctamente')
-
         end.not_to raise_error
       end
-
     end
   end
 end

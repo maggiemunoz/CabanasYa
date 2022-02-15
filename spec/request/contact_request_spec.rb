@@ -91,11 +91,8 @@ class ContactTest < ActiveSupport::TestCase
           find('#infofield', visible: false).fill_in(with: 'testing')
           click_on 'Enviar'
           expect(page).to have_content('La informacion de contacto ha sido enviada correctamente.')
-
         end.not_to raise_error
       end
-
-
     end
   end
 end
