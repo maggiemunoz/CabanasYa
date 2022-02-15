@@ -4,11 +4,9 @@
     <div id="error_explanation">
       <h2> La reserva no se pudo enviar, revisa los siguientes errores: </h2>
 
-      <ul>
       <% booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <p id="error_message"><%= message %></p>
       <% end %>
-      </ul>
     </div>
   <% end %>
 
