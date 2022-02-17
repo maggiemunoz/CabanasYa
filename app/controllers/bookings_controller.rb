@@ -23,9 +23,12 @@ class BookingsController < ApplicationController
   # POST /bookings or /bookings.json
   def create
     better_params = booking_params
-    if booking_params[:dates] != ''
+    if booking_params[:dates].include? 'to'
       better_params[:start_date] = better_params[:dates][0..9].to_date
       better_params[:end_date] = better_params[:dates][14..23].to_date
+    elsif booking_params[:dates] != ''
+      better_params[:start_date] = better_params[:dates][0..9].to_date
+      better_params[:end_date] = better_params[:dates][0..9].to_date
     end
     better_params.delete(:dates)
 
